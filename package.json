@@ -1,0 +1,13 @@
+{
+  "name": "dnd-logger",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:matyah/dnd-logger.git",
+  "author": "Haytam Jebbari <hjebbari@lefigaro.fr>",
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3"
+  }
+}
