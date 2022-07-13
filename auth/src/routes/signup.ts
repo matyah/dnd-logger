@@ -26,8 +26,8 @@ router.post(
     if (existingUser) {
       throw new BadRequestError("Email in use");
     }
-
     const user = User.build({ email, password });
+
     await user.save();
 
     // Generate JWT
@@ -38,6 +38,8 @@ router.post(
       },
       process.env.JWT_KEY!
     );
+
+    console.info(userJwt);
 
     // Store it on session object
     req.session = {
