@@ -1,6 +1,10 @@
+import { NextPage, NextPageContext } from 'next';
+import { buildClient } from '../api/build-client';
+import { User } from '../api/models/User';
 import { Button } from '../components/Button';
 
-const Home = () => {
+const Home: NextPage<{ currentUser: User }> = ({ currentUser }) => {
+  console.log(currentUser);
   return (
     <Button label="2" color="gray" disabled>
       World
@@ -8,24 +12,13 @@ const Home = () => {
   );
 };
 
-export const getServerSideProps = () => {
-  fetch(
-    'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/signup',
-    {
-      method: 'POST',
-      headers: {
-        host: 'dungeon-logger.dev',
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: 'haytamjebs@gmail.com',
-        password: 'thisisapassword',
-      }),
-    }
-  ).then(async (res) => console.info(await res.json()));
+export const getServerSideProps = async (ctx: NextPageContext) => {
+  const { data } = await buildClient(ctx).get('/api/users/currentuser');
 
   return {
-    props: {},
+    props: {
+      ...data,
+    },
   };
 };
 
