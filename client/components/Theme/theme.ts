@@ -4,6 +4,11 @@ import {
   ButtonSizes,
 } from '../Button/Button';
 import { PositionInButtonGroup } from '../Button/ButtonGroup';
+import { HelperColors } from '../FormControls/HelperText/HelperText';
+import {
+  TextInputColors,
+  TextInputSizes,
+} from '../FormControls/TextInput/TextInput';
 
 export interface DungeonLoggerTheme {
   button: {
@@ -48,6 +53,31 @@ export interface DungeonLoggerTheme {
     toggle: {
       base: string;
       icon: string;
+    };
+  };
+  formControls: {
+    helperText: {
+      base: string;
+      colors: HelperColors;
+    };
+    textInput: {
+      base: string;
+      addon: string;
+      field: {
+        base: string;
+        icon: {
+          base: string;
+          svg: string;
+        };
+        input: {
+          base: string;
+          sizes: TextInputSizes;
+          colors: TextInputColors;
+          withIcon: DungeonLoggerBoolean;
+          withAddon: DungeonLoggerBoolean;
+          withShadow: DungeonLoggerBoolean;
+        };
+      };
     };
   };
 }
