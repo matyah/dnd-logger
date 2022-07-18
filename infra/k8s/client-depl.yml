@@ -23,6 +23,7 @@ metadata:
 spec:
   selector:
     app: client
+  type: LoadBalancer
   ports:
     - name: client
       protocol: TCP
