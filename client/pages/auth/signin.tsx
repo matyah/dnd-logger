@@ -6,35 +6,34 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '../../components/Button';
 import { Label } from '../../components/FormControls/Label';
 import { TextInput } from '../../components/FormControls/TextInput';
-import { signupSchema } from '../../lib/validator/singup';
 import { useMutation } from 'react-query';
 import { User } from '../../lib/api/models/User';
 import { buildClient } from '../../lib/api/build-client';
 import { useRouter } from 'next/router';
 import { SignLayout } from '../../components/Layouts/SignLayout';
+import { signinSchema } from '../../lib/validator/signin';
 
-interface SignUpFormInput {
+interface SignInFormInput {
   email: string;
   password: string;
-  confirmPassword: string;
 }
 
-const Signup: NextPage = () => {
+const Signin: NextPage = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm<SignUpFormInput>({
-    resolver: yupResolver(signupSchema),
+  } = useForm<SignInFormInput>({
+    resolver: yupResolver(signinSchema),
     mode: 'onChange',
   });
 
   const router = useRouter();
 
-  const { mutate } = useMutation<User, unknown, SignUpFormInput>(
+  const { mutate } = useMutation<User, unknown, SignInFormInput>(
     'user',
-    async ({ email, password }: SignUpFormInput) => {
-      const { data } = await buildClient().post('/api/users/signup', {
+    async ({ email, password }: SignInFormInput) => {
+      const { data } = await buildClient().post('/api/users/signin', {
         email,
         password,
       });
@@ -48,7 +47,7 @@ const Signup: NextPage = () => {
     }
   );
 
-  const onSubmit: SubmitHandler<SignUpFormInput> = (data) => mutate(data);
+  const onSubmit: SubmitHandler<SignInFormInput> = (data) => mutate(data);
 
   const brand = 'Dungeon Logger';
 
@@ -64,7 +63,7 @@ const Signup: NextPage = () => {
           character!
         </>
       }
-      imgSrc="https://sportshub.cbsistatic.com/i/2021/08/09/5dc852d3-6315-4d03-95a3-54a4712a63a7/strixhaven-college-1276008.jpg"
+      imgSrc="https://static3.cbrimages.com/wordpress/wp-content/uploads/2020/10/DnD-tavern-scene.jpg"
     >
       <div className="text-center">
         <h2 className="text-4xl font-bold text-center text-gray-700 dark:text-white">
@@ -72,7 +71,7 @@ const Signup: NextPage = () => {
         </h2>
 
         <p className="mt-3 text-gray-500 dark:text-gray-300">
-          Sign up to start logging your amazing characters.
+          Sign in to access your characters logs.
         </p>
       </div>
 
@@ -96,6 +95,11 @@ const Signup: NextPage = () => {
           <div className="mt-6">
             <div className="flex justify-between mb-2">
               <Label htmlFor="password">Password</Label>
+              <Link href="#">
+                <a className="text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline">
+                  Forgot password ?
+                </a>
+              </Link>
             </div>
 
             <TextInput
@@ -109,32 +113,17 @@ const Signup: NextPage = () => {
           </div>
 
           <div className="mt-6">
-            <div className="flex justify-between mb-2">
-              <Label htmlFor="password">Confirm Password</Label>
-            </div>
-
-            <TextInput
-              type="password"
-              id="confirm"
-              placeholder="Confirm Your Password"
-              color={errors.confirmPassword ? 'failure' : 'gray'}
-              helperText={errors.confirmPassword?.message}
-              {...register('confirmPassword')}
-            />
-          </div>
-
-          <div className="mt-6">
             <Button type="submit" disabled={!isValid}>
-              Sign Up
+              Sign in
             </Button>
           </div>
         </form>
 
         <p className="mt-6 text-sm text-center text-gray-400">
-          You already have an account ?{' '}
-          <Link href="/auth/signin">
+          Don&apos;t aleady have an account ?{' '}
+          <Link href="/auth/signup">
             <a className="text-blue-500 focus:outline-none focus:underline hover:underline">
-              Sign In
+              Sign Up
             </a>
           </Link>
           .
@@ -165,4 +154,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-export default Signup;
+export default Signin;
