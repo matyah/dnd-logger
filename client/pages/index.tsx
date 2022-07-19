@@ -4,11 +4,7 @@ import { User } from '../lib/api/models/User';
 import { Button } from '../components/Button';
 
 const Home: NextPage<{ currentUser: User }> = ({ currentUser }) => {
-  return (
-    <Button label="2" color="gray" disabled>
-      World
-    </Button>
-  );
+  return <div>Home Page</div>;
 };
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {

@@ -97,6 +97,18 @@ export interface DungeonLoggerTheme {
       };
     };
   };
+  toast: {
+    base: string;
+    closed: string;
+    removed: string;
+    toggle: {
+      base: string;
+      icon: string;
+    };
+    container: {
+      base: string;
+    };
+  };
 }
 
 export interface DungeonLoggerStateColors {
