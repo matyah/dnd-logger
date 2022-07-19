@@ -5,8 +5,8 @@ import { transports, format } from "winston";
 import { LoggerOptions, logger } from "express-winston";
 import debug from "debug";
 import "express-async-errors";
-import { NotFoundError } from "./common/errors/not-found-error";
-import { errorHandler } from "./common/middleware/error-handler";
+import { NotFoundError } from "@matyah/dnd-logger-common";
+import { errorHandler } from "@matyah/dnd-logger-common";
 
 import { currentUserRouter } from "./routes/current-user";
 import { signinRouter } from "./routes/signin";
