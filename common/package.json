@@ -1,6 +1,6 @@
 {
   "name": "@matyah/common",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": ".build/index.js",
   "types": "./build/index.d.ts",
   "license": "MIT",
@@ -17,6 +17,6 @@
     "typescript": "^4.7.4"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/matyah"
+    "registry": "https://npm.pkg.github.com/@matyah"
   }
 }
