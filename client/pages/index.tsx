@@ -1,6 +1,6 @@
 import { NextPage, NextPageContext } from 'next';
-import { buildClient } from '../api/build-client';
-import { User } from '../api/models/User';
+import { buildClient } from '../lib/api/build-client';
+import { User } from '../lib/api/models/User';
 import { Button } from '../components/Button';
 
 const Home: NextPage<{ currentUser: User }> = ({ currentUser }) => {

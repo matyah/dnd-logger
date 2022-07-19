@@ -1,8 +1,8 @@
 import { NextPage } from 'next';
 import React, { useState } from 'react';
 import { useMutation } from 'react-query';
-import { buildClient } from '../../api/build-client';
-import { User } from '../../api/models/User';
+import { buildClient } from '../../lib/api/build-client';
+import { User } from '../../lib/api/models/User';
 
 const Signup: NextPage = () => {
   const [email, setEmail] = useState('');
