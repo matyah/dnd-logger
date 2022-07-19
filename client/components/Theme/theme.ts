@@ -5,6 +5,7 @@ import {
 } from '../Button/Button';
 import { PositionInButtonGroup } from '../Button/ButtonGroup';
 import { HelperColors } from '../FormControls/HelperText/HelperText';
+import { TextAreaColors } from '../FormControls/TextArea/TextArea';
 import {
   TextInputColors,
   TextInputSizes,
@@ -59,6 +60,11 @@ export interface DungeonLoggerTheme {
     helperText: {
       base: string;
       colors: HelperColors;
+    };
+    textarea: {
+      base: string;
+      colors: TextAreaColors;
+      withShadow: DungeonLoggerBoolean;
     };
     label: {
       base: string;

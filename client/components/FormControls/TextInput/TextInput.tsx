@@ -70,8 +70,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             />
           </div>
         </div>
-        {/* TODO: Helper Text Component */}
-        {helperText && <HelperText>{helperText}</HelperText>}
+        {helperText && <HelperText color={color}>{helperText}</HelperText>}
       </>
     );
   }
