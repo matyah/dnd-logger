@@ -9,5 +9,9 @@ export const signupSchema = yup
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
         'Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character'
       ),
+    confirmPassword: yup
+      .string()
+      .required('Please confirm your password')
+      .oneOf([yup.ref('password')], 'Passwords does not match'),
   })
   .required();

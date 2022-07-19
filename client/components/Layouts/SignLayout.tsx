@@ -3,7 +3,7 @@ import React, { ComponentPropsWithoutRef, FC, ReactNode } from 'react';
 export interface SignLayoutProps extends ComponentPropsWithoutRef<'div'> {
   imgSrc?: string;
   brand?: ReactNode;
-  description?: string;
+  description?: ReactNode;
 }
 
 export const SignLayout: FC<SignLayoutProps> = ({

@@ -16,6 +16,7 @@ import { SignLayout } from '../../components/Layouts/SignLayout';
 interface SignUpFormInput {
   email: string;
   password: string;
+  confirmPassword: string;
 }
 
 const Signup: NextPage = () => {
@@ -54,10 +55,16 @@ const Signup: NextPage = () => {
   return (
     <SignLayout
       brand={brand}
-      description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. In
-    autem ipsa, nulla laboriosam dolores, repellendus perferendis
-    libero suscipit nam temporibus molestiae"
-      imgSrc="https://images.unsplash.com/photo-1616763355603-9755a640a287?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+      description={
+        <>
+          A web app to record your successes and failures. In addition to your
+          character sheet, you should have an adventure logsheet. This sheet
+          serves as a record of each session of play. Treat your logsheet as an
+          extension of your character sheet; it is your official record of your
+          character!
+        </>
+      }
+      imgSrc="https://sportshub.cbsistatic.com/i/2021/08/09/5dc852d3-6315-4d03-95a3-54a4712a63a7/strixhaven-college-1276008.jpg"
     >
       <div className="text-center">
         <h2 className="text-4xl font-bold text-center text-gray-700 dark:text-white">
@@ -65,14 +72,16 @@ const Signup: NextPage = () => {
         </h2>
 
         <p className="mt-3 text-gray-500 dark:text-gray-300">
-          Sign in to access your account
+          Sign up to start logging your amazing characters.
         </p>
       </div>
 
       <div className="mt-8">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <Label htmlFor="email">Email Address</Label>
+            <div className="flex justify-between mb-2">
+              <Label htmlFor="email">Email Address</Label>
+            </div>
             <TextInput
               type="email"
               id="email"
@@ -87,12 +96,12 @@ const Signup: NextPage = () => {
           <div className="mt-6">
             <div className="flex justify-between mb-2">
               <Label htmlFor="password">Password</Label>
-              <a
+              {/* <a
                 href="#"
                 className="text-sm text-gray-400 focus:text-blue-500 hover:text-blue-500 hover:underline"
               >
                 Forgot password?
-              </a>
+              </a> */}
             </div>
 
             <TextInput
@@ -106,6 +115,21 @@ const Signup: NextPage = () => {
           </div>
 
           <div className="mt-6">
+            <div className="flex justify-between mb-2">
+              <Label htmlFor="password">Confirm Password</Label>
+            </div>
+
+            <TextInput
+              type="password"
+              id="confirm"
+              placeholder="Confirm Your Password"
+              color={errors.confirmPassword ? 'failure' : 'gray'}
+              helperText={errors.confirmPassword?.message}
+              {...register('confirmPassword')}
+            />
+          </div>
+
+          <div className="mt-6">
             <Button type="submit" disabled={!isValid}>
               Sign Up
             </Button>
@@ -113,7 +137,7 @@ const Signup: NextPage = () => {
         </form>
 
         <p className="mt-6 text-sm text-center text-gray-400">
-          You already have an account ?
+          You already have an account ?{' '}
           <a
             href="#"
             className="text-blue-500 focus:outline-none focus:underline hover:underline"
