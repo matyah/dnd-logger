@@ -60,6 +60,11 @@ export interface DungeonLoggerTheme {
       base: string;
       colors: HelperColors;
     };
+    label: {
+      base: string;
+      colors: any;
+      disabled: string;
+    };
     textInput: {
       base: string;
       addon: string;

@@ -115,6 +115,17 @@ export const defaultTheme: DungeonLoggerTheme = {
         warning: 'text-yellow-500 dark:text-yellow-600',
       },
     },
+    label: {
+      base: 'text-sm font-medium',
+      colors: {
+        default: 'text-gray-900 dark:text-gray-300',
+        info: 'text-blue-500 dark:text-blue-600',
+        failure: 'text-red-700 dark:text-red-500',
+        warning: 'text-yellow-500 dark:text-yellow-600',
+        success: 'text-green-700 dark:text-green-500',
+      },
+      disabled: 'opacity-50',
+    },
     textInput: {
       base: 'flex',
       addon:
