@@ -1,6 +1,6 @@
 {
-  "name": "common",
-  "version": "1.0.5",
+  "name": "@matyah/common",
+  "version": "1.0.1",
   "main": ".build/index.js",
   "types": "./build/index.d.ts",
   "license": "MIT",
