@@ -197,7 +197,7 @@ export const defaultTheme: DungeonLoggerTheme = {
     closed: 'opacity-0 ease-out',
     removed: 'hidden',
     container: {
-      base: 'z-10 fixed box-border top-0 bottom-0 left-0 right-0 pt-4 pr-4 w-full h-full flex flex-col gap-4 items-end',
+      base: 'fixed box-border top-0 bottom-0 left-0 right-0 pt-4 pr-4 w-full flex flex-col gap-4 items-end',
     },
     toggle: {
       base: '-mx-1.5 -my-1.5 ml-auto inline-flex h-8 w-8 rounded-lg bg-white p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-900 focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-gray-500 dark:hover:bg-gray-700 dark:hover:text-white',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GetServerSideProps, NextPage } from 'next';
 import Link from 'next/link';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -30,6 +30,8 @@ const Signin: NextPage = () => {
 
   const router = useRouter();
 
+  const [open, setOpen] = useState(false);
+
   const { mutate } = useMutation<User, unknown, SignInFormInput>(
     'user',
     async ({ email, password }: SignInFormInput) => {
@@ -42,7 +44,10 @@ const Signin: NextPage = () => {
     },
     {
       onSuccess: (data) => {
-        if (data?.id) router.push('/');
+        if (data?.id) {
+          setOpen(true);
+          router.push('/');
+        }
       },
     }
   );

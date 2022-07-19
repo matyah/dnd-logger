@@ -15,10 +15,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         theme: defaultTheme,
       }}
     >
+      <ToastContainer id="dungeon-logger_toast" />
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
       </QueryClientProvider>
-      <ToastContainer id="dungeon-logger_toast" />
     </ThemeProvider>
   );
 }

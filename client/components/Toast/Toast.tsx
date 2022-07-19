@@ -1,5 +1,10 @@
 import classNames from 'classnames';
-import React, { ComponentPropsWithoutRef, FC, useState } from 'react';
+import React, {
+  ComponentPropsWithoutRef,
+  FC,
+  useEffect,
+  useState,
+} from 'react';
 import { Portal } from '../Portal';
 import { useTheme } from '../Theme/ThemeContext';
 import { Duration, ToastContext } from './ToastContext';
@@ -28,6 +33,19 @@ export const Toast: FC<ToastProps> = ({
   const [isRemoved, setIsRemoved] = useState(false);
 
   const theme = useTheme().theme.toast;
+
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout>;
+
+    timeout = setTimeout(() => {
+      setIsClosed(true);
+      setIsRemoved(true);
+    }, duration * 10);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [duration]);
 
   return (
     <ToastContext.Provider
