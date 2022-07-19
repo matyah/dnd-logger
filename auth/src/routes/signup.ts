@@ -1,8 +1,8 @@
 import express, { Request, Response } from "express";
 import { body } from "express-validator";
 import jwt from "jsonwebtoken";
-import { BadRequestError } from "../common/errors/bad-request-error";
-import { validateRequest } from "../common/middleware/validate-request";
+import { BadRequestError } from "@matyah/dnd-logger-common";
+import { validateRequest } from "@matyah/dnd-logger-common";
 
 import { User } from "../models/user";
 

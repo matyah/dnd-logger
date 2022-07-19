@@ -1,5 +1,5 @@
 import express from "express";
-import { currentUser } from "../common/middleware/current-user";
+import { currentUser } from "@matyah/dnd-logger-common";
 
 const router = express.Router();
 
