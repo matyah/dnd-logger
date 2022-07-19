@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { GetServerSideProps, NextPage } from 'next';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { useMutation } from 'react-query';
 import { Button } from '../../components/Button';
 import { Label } from '../../components/FormControls/Label';
 import { TextInput } from '../../components/FormControls/TextInput';
-import { useMutation } from 'react-query';
-import { User } from '../../lib/api/models/User';
-import { buildClient } from '../../lib/api/build-client';
-import { useRouter } from 'next/router';
 import { SignLayout } from '../../components/Layouts/SignLayout';
+import { buildClient } from '../../lib/api/build-client';
+import { User } from '../../lib/api/models/User';
 import { signinSchema } from '../../lib/validator/signin';
 
 interface SignInFormInput {
@@ -30,8 +29,6 @@ const Signin: NextPage = () => {
 
   const router = useRouter();
 
-  const [open, setOpen] = useState(false);
-
   const { mutate } = useMutation<User, unknown, SignInFormInput>(
     'user',
     async ({ email, password }: SignInFormInput) => {
@@ -45,7 +42,6 @@ const Signin: NextPage = () => {
     {
       onSuccess: (data) => {
         if (data?.id) {
-          setOpen(true);
           router.push('/');
         }
       },

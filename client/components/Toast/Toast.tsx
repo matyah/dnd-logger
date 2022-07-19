@@ -1,10 +1,5 @@
 import classNames from 'classnames';
-import React, {
-  ComponentPropsWithoutRef,
-  FC,
-  useEffect,
-  useState,
-} from 'react';
+import { ComponentPropsWithoutRef, FC, useEffect, useState } from 'react';
 import { Portal } from '../Portal';
 import { useTheme } from '../Theme/ThemeContext';
 import { Duration, ToastContext } from './ToastContext';
