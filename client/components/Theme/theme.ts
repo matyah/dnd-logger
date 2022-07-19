@@ -71,6 +71,12 @@ export interface DungeonLoggerTheme {
       colors: any;
       disabled: string;
     };
+    checkbox: {
+      base: string;
+    };
+    radio: {
+      base: string;
+    };
     textInput: {
       base: string;
       addon: string;
