@@ -32,7 +32,8 @@ export const Card: FC<CardProps> = ({
       className={classNames(
         theme.base,
         theme.horizontal[horizontal ? 'on' : 'off'],
-        href && theme.href
+        href && theme.href,
+        className
       )}
       data-testid="flowbite-card"
       href={href}

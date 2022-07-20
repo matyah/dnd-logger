@@ -1,5 +1,6 @@
 import { GetServerSideProps, NextPage } from 'next';
 import { Button } from '../components/Button';
+import { CharacterCard } from '../components/CharacterCard';
 import { buildClient } from '../lib/api/build-client';
 import { Character } from '../lib/api/models/Character';
 import { User } from '../lib/api/models/User';
@@ -11,15 +12,13 @@ interface HomeProps {
 
 const Home: NextPage<HomeProps> = ({ characters }) => {
   return (
-    <div className="flex justify-center items-center h-[calc(100vh-46px)] w-full">
-      {!characters.length && (
-        <p className="text-3xl inline-flex gap-4">
-          <span>You don&apos;t have any characters. Start by creating one</span>{' '}
-          <Button href="#">Here</Button>
-        </p>
-      )}
-      {characters.length > 0 &&
-        characters.map((char) => <div key={char.id}>{char.name}</div>)}
+    <div className="flex justify-center ">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4 w-full box-border p-5">
+        {characters.length > 0 &&
+          characters.map((char) => (
+            <CharacterCard key={char.id} character={char} href="#" />
+          ))}
+      </div>
     </div>
   );
 };
