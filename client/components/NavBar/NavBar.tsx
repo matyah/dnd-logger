@@ -8,7 +8,7 @@ import { NavBarLink } from './NavBarLink';
 import { NavBarToggle } from './NavBarToggle';
 
 export interface NavBarProps extends Omit<ComponentProps<'nav'>, 'className'> {
-  className: string;
+  className?: string;
   menuOpen?: boolean;
   fluid?: boolean;
   rounded?: boolean;

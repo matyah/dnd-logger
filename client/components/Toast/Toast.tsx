@@ -3,6 +3,7 @@ import { ComponentPropsWithoutRef, FC, useEffect, useState } from 'react';
 import { Portal } from '../Portal';
 import { useTheme } from '../Theme/ThemeContext';
 import { Duration, ToastContext } from './ToastContext';
+import { ToastToggle } from './ToastToggle';
 
 export interface ToastProps extends ComponentPropsWithoutRef<'div'> {
   duration?: Duration;
@@ -19,7 +20,7 @@ const durationClasses: Record<Duration, string> = {
   1000: 'duration-1000',
 };
 
-export const Toast: FC<ToastProps> = ({
+const ToastComponent: FC<ToastProps> = ({
   duration = 300,
   children,
   ...props
@@ -68,3 +69,7 @@ export const Toast: FC<ToastProps> = ({
     </ToastContext.Provider>
   );
 };
+
+export const Toast = Object.assign(ToastComponent, {
+  Toggle: ToastToggle,
+});
