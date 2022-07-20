@@ -12,11 +12,17 @@ interface HomeProps {
 
 const Home: NextPage<HomeProps> = ({ characters }) => {
   return (
-    <div className="flex justify-center ">
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4 w-full box-border p-5">
+    <div className="flex flex-col gap-y-4 justify-center m-auto max-w-7xl">
+      <h2 className="text-5xl m-8">Your characters :</h2>
+      <div className="grid lg:grid-cols-6 md:grid-cols-3 gap-4 w-full box-border">
         {characters.length > 0 &&
           characters.map((char) => (
-            <CharacterCard key={char.id} character={char} href="#" />
+            <CharacterCard
+              key={char.id}
+              character={char}
+              imgSrc="https://flowbite.com/docs/images/people/profile-picture-3.jpg"
+              href="#"
+            />
           ))}
       </div>
     </div>
