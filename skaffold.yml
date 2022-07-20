@@ -23,8 +23,6 @@ build:
       context: client
       docker:
         dockerfile: Dockerfile
-        buildArgs:
-          GITHUB_TOKEN: "{{.GITHUB_TOKEN}}"
       sync:
         manual:
           - src: "**/*.ts"
@@ -33,6 +31,8 @@ build:
       context: character
       docker:
         dockerfile: Dockerfile
+        buildArgs:
+          GITHUB_TOKEN: "{{.GITHUB_TOKEN}}"
       sync:
         manual:
           - src: "**/*.ts"
