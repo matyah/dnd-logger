@@ -39,8 +39,6 @@ global.signin = () => {
     email: "test@test.com",
   };
 
-  console.log(process.env.JWT_KEY);
-
   const token = jwt.sign(payload, process.env.JWT_KEY!);
 
   const session = { jwt: token };

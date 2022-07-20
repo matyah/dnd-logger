@@ -10,6 +10,7 @@ import { errorHandler } from "@matyah/dnd-logger-common";
 import { createCharacterRouter } from "./routes/new";
 import { ShowCharacterRouter } from "./routes/show";
 import { indexCharacterRouter } from "./routes";
+import { updateCharacterRouter } from "./routes/update";
 
 const app = express();
 const debugLog: debug.IDebugger = debug("app");
@@ -45,6 +46,7 @@ app.use(logger(loggerOptions));
 app.use(indexCharacterRouter);
 app.use(createCharacterRouter);
 app.use(ShowCharacterRouter);
+app.use(updateCharacterRouter);
 
 app.all("*", async (req, res) => {
   throw new NotFoundError();
