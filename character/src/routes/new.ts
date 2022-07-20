@@ -38,6 +38,9 @@ router.post(
       isPrivate,
       userId: req.currentUser!.id,
     });
+
+    await character.save();
+
     await new CharacterCreatedPublisher(natsWrapper.client).publish({
       id: character.id,
       name: character.name,
@@ -51,8 +54,6 @@ router.post(
       isPrivate: character.isPrivate,
       userId: character.userId,
     });
-
-    await character.save();
 
     res.status(201).send(character);
   }

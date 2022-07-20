@@ -562,10 +562,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@matyah/dnd-logger-common@^1.0.4":
-  version "1.0.4"
-  resolved "https://npm.pkg.github.com/download/@matyah/dnd-logger-common/1.0.4/1eb1b5f4fe85e47377f0dbb77c5b2a3f689e7eb339af3fa5e85ac68e06663d61#a7768d422f37fa1afd3513d914cf0b81b2e64e30"
-  integrity sha512-IFtMLxrqNCfvRhtYCV9GzylW3Im//IUqhOtri1+RnQhqDEAnVYD9BzHAcq9NGhjDA79hfkgBIN3AugGwnAxZEg==
+"@matyah/dnd-logger-common@^1.0.5":
+  version "1.0.5"
+  resolved "https://npm.pkg.github.com/download/@matyah/dnd-logger-common/1.0.5/21030819d8210d834b17835cff9545fd64700d22e74417e499f6d0f2a7851b2a#1bda5ddf470f6a92752caf17ed98ce418fbd2181"
+  integrity sha512-QZ2CQTTxIJstN6IgQusMvRmG5usy8pJd8xupoytESDqAapmUueFu+Mbo3hDyeP6O4NVnz2NjCbVlUSVHp+LAyw==
   dependencies:
     "@types/cookie-session" "^2.0.44"
     cookie-session "^2.0.0"
