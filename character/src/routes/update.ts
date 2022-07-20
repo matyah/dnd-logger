@@ -8,6 +8,8 @@ import {
 } from "@matyah/dnd-logger-common";
 
 import { Character } from "../models/character";
+import { CharacterUpdatedPublisher } from "../events/character-updated-publisher";
+import { natsWrapper } from "../nats-wrapper";
 
 const router = express.Router();
 
@@ -51,6 +53,19 @@ router.put(
       isPrivate: isPrivate ?? character.isPrivate,
     });
     await character.save();
+
+    await new CharacterUpdatedPublisher(natsWrapper.client).publish({
+      id: character.id,
+      name: character.name,
+      class: character.characterClass,
+      level: character.level,
+      race: character.race,
+      background: character.background,
+      lifeStyle: character.lifeStyle,
+      faction: character.faction,
+      portrait: character.portrait,
+      isPrivate: character.isPrivate,
+    });
 
     res.send(character);
   }
