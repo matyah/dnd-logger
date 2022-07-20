@@ -16,6 +16,14 @@ spec:
         - name: character
           image: dungeon-logger/character
           env:
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NATS_CLUSTER_ID
+              value: dungeon-logger
+            - name: NATS_URL
+              value: "http://nats-srv:4222"
             - name: MONGO_URI
               value: "mongodb://character-mongo-srv:27017/character"
             - name: JWT_KEY
