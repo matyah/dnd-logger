@@ -5,8 +5,9 @@ import { transports, format } from "winston";
 import { LoggerOptions, logger } from "express-winston";
 import debug from "debug";
 import "express-async-errors";
-import { NotFoundError } from "@matyah/dnd-logger-common";
+import { currentUser, NotFoundError } from "@matyah/dnd-logger-common";
 import { errorHandler } from "@matyah/dnd-logger-common";
+import { createCharacterRouter } from "./routes/new";
 
 const app = express();
 const debugLog: debug.IDebugger = debug("app");
@@ -19,6 +20,8 @@ app.use(
     secure: process.env.NODE_ENV !== "test",
   })
 );
+
+app.use(currentUser);
 
 // Log
 const loggerOptions: LoggerOptions = {
@@ -37,6 +40,7 @@ if (!process.env.DEBUG) {
 app.use(logger(loggerOptions));
 
 // Routes
+app.use(createCharacterRouter);
 
 app.all("*", async (req, res) => {
   throw new NotFoundError();
