@@ -97,6 +97,16 @@ export interface DungeonLoggerTheme {
       };
     };
   };
+  card: {
+    base: string;
+    horizontal: DungeonLoggerBoolean;
+    href: string;
+    children: string;
+    img: {
+      base: string;
+      horizontal: DungeonLoggerBoolean;
+    };
+  };
   toast: {
     base: string;
     closed: string;
