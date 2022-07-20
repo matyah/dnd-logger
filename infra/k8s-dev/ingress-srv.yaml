@@ -24,3 +24,10 @@ spec:
                 name: client-srv
                 port:
                   number: 3000
+          - path: /api/characters/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: character-srv
+                port:
+                  number: 3000
