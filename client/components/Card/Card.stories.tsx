@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Avatar } from '../Avatar';
 import { Card } from './Card';
 
 export default {
@@ -9,6 +10,11 @@ export default {
 
 const Template: ComponentStory<typeof Card> = (args) => (
   <div className="max-w-sm">
+    <Avatar
+      img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+      size="lg"
+      rounded
+    />
     <Card {...args}>this is my card</Card>
   </div>
 );

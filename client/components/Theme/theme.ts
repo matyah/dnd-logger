@@ -1,3 +1,4 @@
+import { AvatarSizes } from '../Avatar/Avatar';
 import {
   ButtonColors,
   ButtonOutlineColors,
@@ -12,6 +13,25 @@ import {
 } from '../FormControls/TextInput/TextInput';
 
 export interface DungeonLoggerTheme {
+  avatar: {
+    base: string;
+    bordered: string;
+    img: {
+      off: string;
+      on: string;
+    };
+    rounded: string;
+    size: AvatarSizes;
+    stacked: string;
+    status: {
+      away: string;
+      base: string;
+      busy: string;
+      offline: string;
+      online: string;
+    };
+    statusPosition: DungeonLoggerPositions;
+  };
   button: {
     base: string;
     color: ButtonColors;
