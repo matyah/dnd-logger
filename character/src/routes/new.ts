@@ -39,7 +39,7 @@ router.post(
 
     await character.save();
 
-    res.sendStatus(201).send(character);
+    res.status(201).send(character);
   }
 );
 

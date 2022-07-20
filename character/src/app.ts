@@ -8,6 +8,8 @@ import "express-async-errors";
 import { currentUser, NotFoundError } from "@matyah/dnd-logger-common";
 import { errorHandler } from "@matyah/dnd-logger-common";
 import { createCharacterRouter } from "./routes/new";
+import { ShowCharacterRouter } from "./routes/show";
+import { indexCharacterRouter } from "./routes";
 
 const app = express();
 const debugLog: debug.IDebugger = debug("app");
@@ -40,7 +42,9 @@ if (!process.env.DEBUG) {
 app.use(logger(loggerOptions));
 
 // Routes
+app.use(indexCharacterRouter);
 app.use(createCharacterRouter);
+app.use(ShowCharacterRouter);
 
 app.all("*", async (req, res) => {
   throw new NotFoundError();

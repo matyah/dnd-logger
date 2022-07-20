@@ -70,7 +70,7 @@ const characterSchema = new mongoose.Schema(
   {
     toJSON: {
       transform(doc, ret) {
-        doc.id = ret._id;
+        ret.id = ret._id;
         delete ret._id;
       },
     },
